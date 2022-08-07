@@ -1,55 +1,46 @@
 
+function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
 
-
-
+// Generates random choices for the computer
 function getComputerChoice (){
     const gameChoices = ["Rock", "Paper", "Scissors"];
     let compChoice = gameChoices[Math.floor(Math.random() * gameChoices.length)];
     return compChoice
-    // console.log(compChoice)
 }
 
+// Plays 1 round
 function playRound(playerSelection, computerSelection){
 
-    if (playerSelection == "rock" && computerSelection == "Scissors"){
-        return "You win! Rock beats Scissors"
+    // Conditions that the player will win 
+    if (playerSelection == "rock" && computerSelection == "scissors"){
+        return "You Win! Rock beats Scissors"
     }
-    else if (playerSelection == "rock" && computerSelection == "Paper"){
-        return "You lose! paper beats rocks"
+    else if (playerSelection == "paper" && computerSelection == "rock"){
+        return "You Win! Paper beats Rock"
     }
-    else if (playerSelection == "paper" && computerSelection == "Scissors"){
-        return "You lose! Scissors beats Paper"
+    else if (playerSelection == "scissors" && computerSelection == "paper"){
+        return "You Win! Scissors beats Paper"
     }
-    else if (playerSelection == "paper" && computerSelection == "Rock"){
-        return "You win! Paper beats Rock"
+    // Tie condition
+    else if (computerSelection == playerSelection){
+        return "Its a Tie"
     }
-    else if (playerSelection == "scissors" && computerSelection == "Paper"){
-        return "You win! Scissors beats Paper"
-    }
-    else if (playerSelection == "scissors" && computerSelection == "Rock"){
-        return "You Lose! Rock beats Scissors"
-    }
-
-    else if (computerSelection == "Scissors" && playerSelection == "scissors"|| computerSelection == "Paper" && playerSelection == "paper"|| computerSelection == "Rock" && playerSelection == "rock"){
-        return "its a tie man"
-    }
-
-    else{
-        return "Wrong Choice"
+    // If player and tie conditions are not met it means the computer won
+    else { 
+        return `Computer Wins! ${capitalize(computerSelection)} beats ${capitalize(playerSelection)}`
     }
 }
-
-let playerSelection = "rock";
-
-// console.log(playRound(playerSelection, computerSelection));
-
+// Plays a game of 5 rounds every round a new choice for the player
 function game(){
     for (i = 0; i < 5; i++){
         
         let userChoice= prompt("enter rock or paper or scissors: ").toLowerCase();
-        let computerSelection = getComputerChoice();
+        let computerSelection = getComputerChoice().toLowerCase();
         console.log(playRound(userChoice, computerSelection))
     }
 }
+
 game()
 
