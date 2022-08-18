@@ -5,9 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="./index.js"></script>
+    <link rel="stylesheet" href="./index.css"></link>
+    <script src="./index.js" defer></script>
 </head>
 <body>
+    <h1>Rock Paper Scissors</h1>
+    <div id="choice">Choose Wisely
+    <p id="points">5 points wins the game</p>
+    </div>
+    <div class="container-scores">
+        <p>Score player: <span class="score-player"> 0 </span></p>
+        <p>Score pc: <span class="score-pc"> 0 </span></p>
+    </div>
+    <div class="container">
+        <div id="pop-container">
+                <button id="rock"><img src="./images/rock.png"></button>
+                <button id ="paper"><img src="./images/paper.png"></button>
+                <button id ="scissors"><img src="./images/scissors.png"></button>
+        </div>
+    </div>
     
 </body>
 </html>
